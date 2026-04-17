@@ -125,8 +125,42 @@ python pandoc_converter.py input\legacy.doc output\legacy.html
 python pandoc_converter.py input\report.docx output\report.html
 
 # Kết quả: file HTML có thể mở bằng bất kỳ trình duyệt nào
+
+```markdown
+## Sử dụng với Docker
+
+### Build image
+
+```bash
+docker build -t code2html .
 ```
 
-## Giấy phép
+### Yêu cầu
+
+- Docker đã cài đặt.
+- Image bao gồm Python, Pandoc, **LibreOffice** (cần thiết để đọc file `.doc` cũ).
+
+### Chạy chuyển đổi
+
+**Windows (PowerShell):**
+```powershell
+docker run --rm -v "${PWD}:/data" code2html /data/input/legacy.doc /data/output/legacy.html
+```
+
+**Windows (CMD):**
+```cmd
+docker run --rm -v "%cd%:/data" code2html /data/input/legacy.doc /data/output/legacy.html
+```
+
+**Linux/macOS:**
+```bash
+docker run --rm -v "$(pwd):/data" code2html /data/input/legacy.doc /data/output/legacy.html
+```
+
+### Kiểm tra dependencies trong container
+
+```bash
+docker run --rm code2html --check-deps
+```
 
 MIT
