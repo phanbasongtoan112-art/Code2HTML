@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>report</title>
+  <style>
+    /* ── doc2html.py base stylesheet ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    
+    body {
+        font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #222;
+        background: #fff;
+        max-width: 860px;
+        margin: 2em auto;
+        padding: 0 1.5em 4em;
+    }
+    
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Calibri Light", "Segoe UI Light", Arial, sans-serif;
+        color: #1a1a2e;
+        margin-top: 1.4em;
+        margin-bottom: 0.3em;
+        line-height: 1.25;
+    }
+    h1 { font-size: 2em;   border-bottom: 2px solid #4472c4; padding-bottom: .25em; }
+    h2 { font-size: 1.5em; border-bottom: 1px solid #c0c0c0; padding-bottom: .2em; }
+    h3 { font-size: 1.2em; }
+    h4 { font-size: 1.05em; font-style: italic; }
+    
+    /* Paragraphs */
+    p  { margin: 0 0 0.6em; }
+    
+    /* Lists */
+    ul, ol { margin: 0.4em 0 0.8em 1.8em; padding: 0; }
+    li      { margin-bottom: 0.25em; }
+    
+    /* Tables */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1em 0;
+        font-size: 0.97em;
+    }
+    th, td {
+        border: 1px solid #bbb;
+        padding: 6px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+    th {
+        background: #4472c4;
+        color: #fff;
+        font-weight: 600;
+    }
+    tr:nth-child(even) td { background: #f4f7fb; }
+    
+    /* Inline text decorations */
+    strong, b { font-weight: 700; }
+    em, i     { font-style: italic; }
+    u         { text-decoration: underline; }
+    s, strike { text-decoration: line-through; }
+    code, pre {
+        font-family: "Consolas", "Courier New", monospace;
+        background: #f4f4f4;
+        border-radius: 3px;
+    }
+    code { padding: 1px 4px; font-size: 0.9em; }
+    pre  { padding: 0.8em 1em; overflow-x: auto; border: 1px solid #ddd; }
+    
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0.6em 0;
+    }
+    
+    /* Horizontal rule */
+    hr { border: none; border-top: 1px solid #ccc; margin: 1.5em 0; }
+    
+    /* Links */
+    a { color: #1155cc; }
+    a:hover { color: #0b3d91; }
+    
+    /* Mammoth-specific extras */
+    .document-title { font-size: 2.4em; font-weight: 800; margin-bottom: .1em; }
+    .subtitle        { font-size: 1.2em; color: #555; margin-top: -.5em; }
+    blockquote {
+        border-left: 4px solid #4472c4;
+        margin: 1em 0 1em 1em;
+        padding: 0.5em 1em;
+        color: #444;
+        font-style: italic;
+        background: #f8f9fc;
+    }
+    blockquote.intense { border-color: #c0392b; background: #fff8f7; }
+    .caption { font-size: 0.88em; color: #666; font-style: italic; }
+  </style>
+</head>
+<body>
+<p><img src="data:image/png;base64,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" /></p><h1><strong>Sample Document</strong></h1><p><em>Documentero.com</em></p><p>Welcome to our sample document template! You can <strong>use our online editor to </strong>create document templates or create a template in any editor (Word, LibreOffice, Google Docs) and <strong>upload them to our platform (.docx)</strong></p><h2>Fields</h2><p>You need to provide placeholders in the document template in places that you would like to control (field name in curly brackets).</p><h3><em>#1 Regular fields example</em></h3><ul><li>Name: <strong>{name}</strong></li><li>Location:<strong> {country} {city}</strong></li><li>Age:<strong> {age}</strong></li></ul><p><strong>Hi {name} from {city}. Nice to meet you!</strong></p><p> </p><h2>Sections</h2><p>Sections could be used to show or hide part of a document. It could be paragraph/table row / list item or whole document page. Section name always starts with “#”</p><h3><em>#2 Simple section example</em></h3><p><strong>{#conditional}</strong>This part of document will be visible conditionally<strong>{/conditional}</strong></p><p> </p><h3><em>#3 Section with fields example</em></h3><p><strong>{#products}</strong></p><p>This part of document could be repeated with different fields</p><p>Product Name: <strong>{product}</strong> | Product Price: <strong>{price}</strong></p><p><strong>{/products}</strong></p><p> </p><p>Check out more examples (load initial templates) or check our Documentation. If you are still confused about how to craft document templates feel free to reach out to our support. We will assist you!</p>
+</body>
+</html>
