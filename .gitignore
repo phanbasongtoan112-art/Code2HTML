@@ -1,0 +1,25 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# Dữ liệu thử nghiệm
+input/
+output/
+*.doc
+*.docx
+*.html
+!README.md   # ngoại lệ: vẫn cho phép README.md
+
+# Báo cáo
+*.docx
+!BÁO CÁO*.docx   # nếu muốn giữ báo cáo thì bỏ dấu !, không thì xóa dòng này
+
+# Docker tạm
+*.log
